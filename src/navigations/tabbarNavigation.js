@@ -5,7 +5,7 @@ import DashboardStack from './dashboardStack';
 import Search from '../containers/Search';
 import Map from '../containers/Map';
 import Notification from '../containers/Notification';
-import Bookmark from '../containers/Bookmark';
+import Bookmark from './bookmarkStack';
 import styles from './styles';
 import Icons from '../themes/Icons';
 
