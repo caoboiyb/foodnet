@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
 import DashboardStack from './dashboardStack';
-import Search from '../containers/Search';
+import Search from './searchStack';
 import Map from '../containers/Map';
 import Notification from '../containers/Notification';
 import Bookmark from './bookmarkStack';

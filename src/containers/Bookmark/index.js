@@ -9,7 +9,7 @@ const restaurantData = [
   {
     id: 1,
     image: Images.restaurantPhoto,
-    score: 8.0,
+    score: '8.0',
     name: 'KFC',
     type: 'Restaurant',
     status: 1,
@@ -18,7 +18,7 @@ const restaurantData = [
   {
     id: 2,
     image: Images.restaurantPhoto,
-    score: 7.5,
+    score: '7.5',
     name: 'Lotteria',
     type: 'Restaurant',
     status: 0,
@@ -27,7 +27,7 @@ const restaurantData = [
   {
     id: 3,
     image: Images.restaurantPhoto,
-    score: 9.0,
+    score: '9.0',
     name: 'Daruma',
     type: 'Restaurant',
     status: 1,
@@ -36,7 +36,7 @@ const restaurantData = [
   {
     id: 4,
     image: Images.restaurantPhoto,
-    score: 8.0,
+    score: '8.0',
     name: 'The Coffee House',
     type: 'Cafeteria',
     status: 1,
@@ -45,7 +45,7 @@ const restaurantData = [
   {
     id: 5,
     image: Images.restaurantPhoto,
-    score: 5.0,
+    score: '5.0',
     name: '1900',
     type: 'Bar',
     status: 1,
@@ -76,7 +76,7 @@ class Bookmark extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#F5F5F5' }}>
         <NavBar
           title="Bookmark"
           rightNavBar={<Image source={Icons.profile} />}
