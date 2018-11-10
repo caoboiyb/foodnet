@@ -6,13 +6,7 @@ const styles = StyleSheet.create({
   ViewMain: {
     height: 60 * d.ratioH,
     width: 67.5 * d.ratioW,
-
-    elevation: 3,
-    shadowColor: 'rgb(189,189,189)',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 20,
-
+    elevation: 5,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',

@@ -29,42 +29,7 @@ const dataImageFake = [
 ];
 
 class HomeOverviewRestaurant extends PureComponent {
-  state = {
-    modalVisible: false,
-    photoView: null,
-  };
-  componentDidMount() {}
-
-  renderPhotos = () => {
-    return (
-      <View style={styles.ScrollViewImages}>
-        <FlatList
-          horizontal
-          data={dataImageFake}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <Image source={item} style={styles.ImagesOverView} />
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-    );
-  };
-
-  renderGreencircle = data => {
-    if (data.hasOwnProperty('rating')) {
-      return (
-        <View style={styles.ViewPointWrap}>
-          <View style={styles.ViewPoint}>
-            <Text style={styles.Point}>
-              {this.props.dataPlaceDetail.data.rating}
-            </Text>
-          </View>
-        </View>
-      );
-    }
-    return null;
-  };
+  state = {};
 
   render() {
     return (
@@ -76,37 +41,31 @@ class HomeOverviewRestaurant extends PureComponent {
             </TouchableOpacity>
           }
         />
-        {this.renderPhotos()}
+        <View style={styles.ScrollViewImages}>
+          <FlatList
+            horizontal
+            data={dataImageFake}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <Image source={item} style={styles.ImagesOverView} />
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
 
         <View style={styles.ViewContent}>
-          {/* <View style={styles.ViewPointWrap}>
+          <View style={styles.ViewPointWrap}>
             <View style={styles.ViewPoint}>
-              <Text style={styles.Point}>{this.props.dataPlaceDetail.data.rating}</Text>
+              <Text style={styles.Point}>9.8</Text>
             </View>
-          </View> */}
-          {/* {this.renderGreencircle(this.props.dataPlaceDetail.data)} */}
+          </View>
 
           <View style={styles.ViewNameRestaurant}>
             <Text style={styles.TextNameRestaurant}>Sublimotion</Text>
           </View>
 
           <View style={styles.ViewTypeRestaurantCost}>
-            {/* <View style={styles.ViewTypeRestaurant}>
-              <Text style={styles.TextTypeRestaurant}>{data.city}</Text>
-            </View> */}
-            <View style={styles.ViewCost}>
-              {/* <StarRating
-                disabled={false}
-                emptyStar="ios-star-outline"
-                fullStar="ios-star"
-                iconSet="Ionicons"
-                maxStars={5}
-                rating={Math.floor(this.props.dataPlaceDetail.data.rating)}
-                fullStarColor="#4CB33E"
-                reversed
-                starSize={12}
-              /> */}
-            </View>
+            <View style={styles.ViewCost} />
           </View>
 
           <View style={styles.ViewLocation}>

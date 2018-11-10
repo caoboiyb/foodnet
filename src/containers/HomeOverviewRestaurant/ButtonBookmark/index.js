@@ -56,11 +56,7 @@ class ButtonBookmark extends PureComponent {
 
   render() {
     return (
-      <TouchableOpacity
-        activeOpacity={1}
-        style={styles.ViewMain}
-        onPress={() => this.pressBookmark()}
-      >
+      <TouchableOpacity activeOpacity={1} onPress={() => this.pressBookmark()}>
         {this.renderButtonIcon(this.state.isBookmark)}
       </TouchableOpacity>
     );

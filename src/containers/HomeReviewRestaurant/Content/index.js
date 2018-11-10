@@ -1,74 +1,32 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { View, Text, Image, FlatList, TouchableOpacity, Modal } from 'react-native';
-import Moment from 'moment';
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  Modal,
+} from 'react-native';
 import styles from './styles';
-import { Colors } from '../../../../themes';
-import ModalViewImage from '../../../../components/ModalViewImage';
-// import { Images } from '../../../../themes';
+import Colors from '../../../themes/color';
 
 class Content extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalVisible: false,
-      photoView: null,
-    };
-  }
+  state = {
+    modalVisible: false,
+    photoView: null,
+  };
 
-  setModalVisible(visible) {
-    console.log('visible', visible);
-    this.setState({
-      modalVisible: visible,
-    });
-  }
-  _onViewPhoto(item) {
-    this.setState({ photoView: item });
-    this.setModalVisible(true);
-  }
-  gallery() {
-    // console.log(this.props.data.content.photos);
-    // eslint-disable-next-line
-    if (this.props.data.content.hasOwnProperty('photos')) {
-      if (this.props.data.content.photos <= 0) {
-        return null;
-      }
-      console.log(this.props.data.content.photos[3]);
-
-      // if (this.props.data.content.photos.length > 3) {
-      //   const dataPhotos = [
-      //     this.props.data.content.photos[0],
-      //     this.props.data.content.photos[1],
-      //     this.props.data.content.photos[2],
-      //   ];
-      //   return (
-      //     <FlatList
-      //       style={styles.ViewGallery}
-      //       data={dataPhotos}
-      //       horizontal
-      //       renderItem={({ item }) => (
-      //         <TouchableOpacity onPress={() => this._onViewPhoto(item)}>
-      //           <Image source={{ uri: item }} style={styles.gallery} />
-      //         </TouchableOpacity>
-      //       )}
-      //       keyExtractor={(item, index) => index.toString()}
-      //     />
-      //   );
-      // }
+  gallery = condition => {
+    if (condition > 0) {
       return (
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
           style={styles.ViewGallery}
-          data={this.props.data.content.photos}
+          data={this.props.data.Images}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => this._onViewPhoto(item)}>
-              <Image
-                // onPress={() => this._onViewPhoto(item)}
-                source={{ uri: item }}
-                style={styles.gallery}
-              />
+            <TouchableOpacity>
+              <Image source={item} style={styles.gallery} />
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -76,51 +34,41 @@ class Content extends PureComponent {
       );
     }
     return null;
-  }
+  };
 
   render() {
     return (
       <View style={styles.ViewMain}>
-        <Modal animationType="slide" transparent={false} visible={this.state.modalVisible}>
-          <ModalViewImage
-            onShowModalImage={() => this.setModalVisible(!this.state.modalVisible)}
-            photoView={this.state.photoView}
-          />
-        </Modal>
         <View style={styles.ViewMainChild}>
           <View style={styles.ViewMainChildTop}>
             <View style={styles.ViewAvatar}>
-              {this.props.data.userAvatar ? (
-                <Image source={{ uri: this.props.data.userAvatar }} style={styles.avatar} />
-              ) : (
-                <Icon name="md-contact" size={35} color={Colors.textOpacity} />
-              )}
+              <Image source={this.props.data.avatar} style={styles.avatar} />
             </View>
             <View style={styles.ViewNameHours}>
-              <Text style={styles.TextName}>{this.props.data.userName}</Text>
+              <Text style={styles.TextName}>{this.props.data.name}</Text>
               <Text style={styles.TextHoursComment}>
-                {Moment(this.props.data.created).format('h:mm a, Do MMMM YYYY')}
+                {this.props.data.hours} hour
               </Text>
             </View>
             <View style={styles.ViewScore}>
-              <Text style={styles.TextScore}>{this.props.data.rating}/5</Text>
+              <Text style={styles.TextScore}>{this.props.data.score}/10</Text>
             </View>
           </View>
           <View style={styles.ViewMainChildBottom}>
-            <Text style={styles.TextHoursComment}>{this.props.data.content.detail}</Text>
+            <Text style={styles.TextHoursComment}>
+              {this.props.data.comment}
+            </Text>
           </View>
-          {this.gallery()}
-          <View style={styles.ViewMainChildBottom}>
-            <Text style={styles.TextHoursComment2}>{this.props.data.restaurantName}</Text>
-          </View>
+          {this.gallery(this.props.data.isImages)}
+          {/* <View style={styles.ViewMainChildBottom}>
+            <Text style={styles.TextHoursComment2}>
+              {this.props.data.restaurantName}
+            </Text>
+          </View> */}
         </View>
       </View>
     );
   }
 }
-
-Content.propTypes = {
-  data: PropTypes.object.isRequired,
-};
 
 export default Content;

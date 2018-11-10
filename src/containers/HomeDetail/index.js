@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import styles from './styles';
 import HomeMenuRestaurant from '../HomeMenuRestaurant';
 import HomeOverviewRestaurant from '../HomeOverviewRestaurant';
-// import HomeReviewRestaurant from '../HomeReviewRestaurant';
+import HomeReviewRestaurant from '../HomeReviewRestaurant';
 
 const OVERVIEW = 'HomeOverviewRestaurant';
 const MENU = 'HomeMenuRestaurant';
@@ -62,13 +62,7 @@ class HomeDetail extends Component {
     if (activeTab === MENU) {
       return <HomeMenuRestaurant navigation={this.props.navigation} />;
     }
-
-    return (
-      // <HomeReviewRestaurant
-      //   onPressGoBack={() => this.props.navigation.goBack()}
-      // />
-      <View />
-    );
+    return <HomeReviewRestaurant navigation={this.props.navigation} />;
   };
 
   render() {
