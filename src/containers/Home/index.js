@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import NavBar from '../../components/NavBar';
 
 class Home extends Component {
@@ -10,6 +10,11 @@ class Home extends Component {
       <View>
         <NavBar title="Home" />
         <Text>Home</Text>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('HomeDetail')}
+        >
+          <Text>detail</Text>
+        </TouchableOpacity>
       </View>
     );
   }
