@@ -4,7 +4,7 @@ import { createBottomTabNavigator, TabNavigator } from 'react-navigation';
 import DashboardStack from './dashboardStack';
 import Search from './searchStack';
 import Map from '../containers/Map';
-import Notification from '../containers/Notification';
+import Notification from './notiStack';
 import Bookmark from './bookmarkStack';
 import styles from './styles';
 import Icons from '../themes/Icons';
@@ -17,10 +17,25 @@ export default createBottomTabNavigator(
         tabBarVisible: navigation.state.index === 0,
       }),
     },
-    Search,
+    Search: {
+      screen: Search,
+      navigationOptions: ({ navigation }) => ({
+        tabBarVisible: navigation.state.index === 0,
+      }),
+    },
     Map,
-    Notification,
-    Bookmark,
+    Notification: {
+      screen: Notification,
+      navigationOptions: ({ navigation }) => ({
+        tabBarVisible: navigation.state.index === 0,
+      }),
+    },
+    Bookmark: {
+      screen: Bookmark,
+      navigationOptions: ({ navigation }) => ({
+        tabBarVisible: navigation.state.index === 0,
+      }),
+    },
   },
   {
     navigationOptions: ({ navigation }) => ({
