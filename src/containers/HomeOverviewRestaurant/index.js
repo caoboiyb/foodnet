@@ -8,15 +8,25 @@ import {
   Modal,
   Dimensions,
 } from 'react-native';
-import StarRating from 'react-native-star-rating';
-import Loading from '../../../components/LoadingContainer';
-import { Icons, Colors } from '../../../themes';
-import Header from '../../../components/Header';
+// import StarRating from 'react-native-star-rating';
+// import Loading from '../../../components/LoadingContainer';
+import NavBar from '../../components/NavBar';
+import Icons from '../../themes/Icons';
+import Colors from '../../themes/color';
+import Images from '../../themes/Images';
+// import Header from '../../../components/Header';
 import ButtonCustom from './ButtonCustom';
 import ButtonBookmark from './ButtonBookmark';
-import * as d from '../../../utilities/Tranform';
-// import ModalViewImage from '../../../components/ModalViewImage';
+import * as d from '../../utilities/Tranform';
 import styles from './styles';
+
+const dataImageFake = [
+  Images.restaurantPhoto,
+  Images.restaurantPhotoMenu1,
+  Images.restaurantPhotoMenu2,
+  Images.restaurantPhotoMenu3,
+  Images.restaurantPhotoMenu4,
+];
 
 class HomeOverviewRestaurant extends PureComponent {
   state = {
@@ -25,40 +35,17 @@ class HomeOverviewRestaurant extends PureComponent {
   };
   componentDidMount() {}
 
-  setModalVisible(visible) {
-    console.log('visible', visible);
-    this.setState({
-      modalVisible: visible,
-    });
-  }
-
-  renderPhotos = data => {
-    if (data.hasOwnProperty('photos')) {
-      return (
-        <View style={styles.ScrollViewImages}>
-          <FlatList
-            horizontal
-            data={this.props.dataPlaceDetail.data.photos}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <TouchableOpacity>
-                <AsyncImage
-                  // source={{}}
-                  style={styles.ImagesOverView}
-                  placeholderColor={Colors.textOpacity10}
-                />
-              </TouchableOpacity>
-            )}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
-      );
-    }
+  renderPhotos = () => {
     return (
       <View style={styles.ScrollViewImages}>
-        <Image
-          // source={require('../../../../assets/images/restaurantPhoto.png')}
-          style={styles.ImagesOverView}
+        <FlatList
+          horizontal
+          data={dataImageFake}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <Image source={item} style={styles.ImagesOverView} />
+          )}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
     );
@@ -80,33 +67,16 @@ class HomeOverviewRestaurant extends PureComponent {
   };
 
   render() {
-    if (this.props.dataPlaceDetail.isFetching === true) {
-      return <Loading />;
-    }
     return (
-      // <Loading />
       <View style={styles.ViewMain}>
-        <Header
-          leftHeader={
-            <Image source={Icons.back} style={{ marginTop: 2 * d.ratioH }} />
+        <NavBar
+          leftNavBar={
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Image source={Icons.back} />
+            </TouchableOpacity>
           }
-          onPressLeftHeader={this.props.onPressGoBack}
-          centerHeader
-          rightHeader
         />
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-        >
-          <ModalViewImage
-            onShowModalImage={() =>
-              this.setModalVisible(!this.state.modalVisible)
-            }
-            photoView={this.state.photoView}
-          />
-        </Modal>
-        {this.renderPhotos(this.props.dataPlaceDetail.data)}
+        {this.renderPhotos()}
 
         <View style={styles.ViewContent}>
           {/* <View style={styles.ViewPointWrap}>
@@ -114,12 +84,10 @@ class HomeOverviewRestaurant extends PureComponent {
               <Text style={styles.Point}>{this.props.dataPlaceDetail.data.rating}</Text>
             </View>
           </View> */}
-          {this.renderGreencircle(this.props.dataPlaceDetail.data)}
+          {/* {this.renderGreencircle(this.props.dataPlaceDetail.data)} */}
 
           <View style={styles.ViewNameRestaurant}>
-            <Text style={styles.TextNameRestaurant}>
-              {this.props.dataPlaceDetail.data.name}
-            </Text>
+            <Text style={styles.TextNameRestaurant}>Sublimotion</Text>
           </View>
 
           <View style={styles.ViewTypeRestaurantCost}>
@@ -127,7 +95,7 @@ class HomeOverviewRestaurant extends PureComponent {
               <Text style={styles.TextTypeRestaurant}>{data.city}</Text>
             </View> */}
             <View style={styles.ViewCost}>
-              <StarRating
+              {/* <StarRating
                 disabled={false}
                 emptyStar="ios-star-outline"
                 fullStar="ios-star"
@@ -137,7 +105,7 @@ class HomeOverviewRestaurant extends PureComponent {
                 fullStarColor="#4CB33E"
                 reversed
                 starSize={12}
-              />
+              /> */}
             </View>
           </View>
 
@@ -146,9 +114,7 @@ class HomeOverviewRestaurant extends PureComponent {
           </View>
 
           <View style={styles.ViewLocation}>
-            <Text style={styles.TextLocation}>
-              {this.props.dataPlaceDetail.data.vicinity}
-            </Text>
+            <Text style={styles.TextLocation}>Hanoi</Text>
           </View>
 
           <View style={styles.ViewBtnBottom}>
@@ -161,21 +127,18 @@ class HomeOverviewRestaurant extends PureComponent {
               title="Direct"
               iconName={Icons.directOutLine}
               iconColor={Colors.text}
-              onPressButton={() =>
-                this.props.navigate('Direct', {
-                  destination: {
-                    latitude: this.props.dataPlaceDetail.data.location.lat,
-                    longitude: this.props.dataPlaceDetail.data.location.lng,
-                  },
-                })
-              }
+              onPressButton={() => this.props.navigate('Direct')}
             />
             <ButtonCustom
               title="Call Now"
               iconName={Icons.phoneCall}
               iconColor={Colors.text}
             />
-            <ButtonBookmark idRestaurant={this.props.idRestaurant} />
+            <ButtonBookmark
+              title="Bookmark"
+              iconName={Icons.pin}
+              iconColor={Colors.text}
+            />
           </View>
         </View>
       </View>

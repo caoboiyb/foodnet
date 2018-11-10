@@ -1,41 +1,22 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import firebase from 'react-native-firebase';
-
-import { View, Text, Image, TouchableOpacity, AsyncStorage } from 'react-native';
-import PropTypes from 'prop-types';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  AsyncStorage,
+} from 'react-native';
 import styles from './styles';
-import Loading from '../../../../components/LoadingContainer';
-import { Icons, Colors } from '../../../../themes';
-import { fetchDatagetBookmark } from '../../../../actions/getBookmarkAction';
-// import { O_DIRECTORY } from 'constants';
+import Icons from '../../../themes/Icons';
+import Colors from '../../../themes/color';
 
 class ButtonBookmark extends PureComponent {
-  state = {};
-  componentDidMount() {
-    this.getUser();
-  }
-
-  getUser = async () => {
-    const user = await AsyncStorage.getItem('user');
-    const userId = JSON.parse(user).uid;
-    console.log(userId);
-    this.props.fetchDatagetBookmark(userId, this.props.idRestaurant);
-  };
-  pressBookmark = async () => {
-    const user = await AsyncStorage.getItem('user');
-    const userId = JSON.parse(user).uid;
-    const restaurantId = this.props.idRestaurant;
-    firebase
-      .database()
-      .ref(`/root/users/${userId}/bookmark/${restaurantId}/status`)
-      .set(!this.props.dataBookmark.data);
+  state = {
+    isBookmark: false,
   };
 
-  renderButtonIcon = () => {
-    console.log(this.props.dataBookmark.data);
-
-    if (this.props.dataBookmark.data) {
+  renderButtonIcon = conditon => {
+    if (conditon) {
       return (
         <View style={styles.ViewMain}>
           <Image source={Icons.pinFocused} style={styles.iconStyle} />
@@ -67,45 +48,23 @@ class ButtonBookmark extends PureComponent {
     );
   };
 
+  pressBookmark = () => {
+    this.setState({
+      isBookmark: !this.state.isBookmark,
+    });
+  };
+
   render() {
-    if (this.props.dataBookmark.isFetching === true) {
-      return (
-        <View style={styles.ViewMain}>
-          <Loading />
-        </View>
-      );
-    }
     return (
-      <TouchableOpacity style={styles.ViewMain} onPress={this.pressBookmark}>
-        {this.renderButtonIcon()}
+      <TouchableOpacity
+        activeOpacity={1}
+        style={styles.ViewMain}
+        onPress={() => this.pressBookmark()}
+      >
+        {this.renderButtonIcon(this.state.isBookmark)}
       </TouchableOpacity>
     );
   }
 }
 
-ButtonBookmark.propTypes = {
-  // onPressButton: PropTypes.func,
-  dataBookmark: PropTypes.object.isRequired,
-  // dataPlaceDetail: PropTypes.object.isRequired,
-  fetchDatagetBookmark: PropTypes.func.isRequired,
-  idRestaurant: PropTypes.string.isRequired,
-};
-
-ButtonBookmark.defaultProps = {
-  // onPressButton: () => {},
-};
-
-const mapStateToProps = state => ({
-  dataBookmark: state.getBookmarkReducers,
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchDatagetBookmark: (userId, restaurantId) =>
-    dispatch(fetchDatagetBookmark(userId, restaurantId)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ButtonBookmark);
-// export default ButtonBookmark;
+export default ButtonBookmark;

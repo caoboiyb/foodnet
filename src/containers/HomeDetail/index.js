@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, BackHandler } from 'react-native';
 import styles from './styles';
 import HomeMenuRestaurant from '../HomeMenuRestaurant';
-// import HomeOverviewRestaurant from '../HomeOverviewRestaurant';
+import HomeOverviewRestaurant from '../HomeOverviewRestaurant';
 // import HomeReviewRestaurant from '../HomeReviewRestaurant';
 
 const OVERVIEW = 'HomeOverviewRestaurant';
@@ -57,14 +57,7 @@ class HomeDetail extends Component {
 
   renderContent = activeTab => {
     if (activeTab === OVERVIEW) {
-      return (
-        // <HomeOverviewRestaurant
-        //   navigate={this.props.navigation.navigate}
-        //   onPressGoBack={() => this.props.navigation.goBack()}
-        //   onPressDirect={() => this.props.navigation.navigate('Direct')}
-        // />
-        <View />
-      );
+      return <HomeOverviewRestaurant navigation={this.props.navigation} />;
     }
     if (activeTab === MENU) {
       return <HomeMenuRestaurant navigation={this.props.navigation} />;

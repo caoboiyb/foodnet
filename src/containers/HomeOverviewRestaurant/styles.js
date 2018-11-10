@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import * as d from '../../../utilities/Tranform';
+import * as d from '../../utilities/Tranform';
 
 const styles = StyleSheet.create({
   ViewMain: {
@@ -24,10 +24,12 @@ const styles = StyleSheet.create({
     height: 240 * d.ratioH,
     width: 250 * d.ratioW,
     marginLeft: 30 * d.ratioW,
-    marginTop: 10 * d.ratioH,
+    // marginTop: 10 * d.ratioH,
   },
 
-  ScrollViewImages: {},
+  ScrollViewImages: {
+    // marginLeft: 10,
+  },
   ViewPointWrap: {},
   ViewPoint: {
     alignItems: 'center',

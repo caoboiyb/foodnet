@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
-import { Images } from '../../../../themes';
+// import Images from '../../../../themes';
 
 class ButtonCustom extends PureComponent {
   state = {
@@ -28,9 +28,5 @@ class ButtonCustom extends PureComponent {
     );
   }
 }
-
-ButtonCustom.defaultProps = {
-  onPressButton: () => {},
-};
 
 export default ButtonCustom;
