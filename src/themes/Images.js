@@ -1,6 +1,22 @@
 const images = {
   logo: require('../../assets/icons/logo.png'),
+
   restaurantPhoto: require('../../assets/images/restaurantPhoto.png'),
+  restaurantPhoto2: require('../../assets/images/shutterstock175110251.png'),
+  restaurantPhoto3: require('../../assets/images/res1.jpg'),
+  restaurantPhoto4: require('../../assets/images/res2.jpg'),
+  restaurantPhoto5: require('../../assets/images/res3.jpg'),
+  restaurantPhoto6: require('../../assets/images/res4.jpg'),
+  restaurantPhoto7: require('../../assets/images/res5.jpg'),
+  restaurantPhoto8: require('../../assets/images/res6.jpg'),
+  restaurantPhoto9: require('../../assets/images/res7.jpg'),
+  restaurantPhoto10: require('../../assets/images/res8.jpg'),
+  restaurantPhoto11: require('../../assets/images/res9.jpg'),
+  restaurantPhoto12: require('../../assets/images/res10.jpg'),
+  restaurantPhoto13: require('../../assets/images/res11.jpg'),
+  restaurantPhoto14: require('../../assets/images/res12.jpg'),
+  restaurantPhoto15: require('../../assets/images/res13.jpg'),
+
   restaurantPhotoMenu1: require('../../assets/images/restaurantPhotoMenu1.png'),
   restaurantPhotoMenu2: require('../../assets/images/restaurantPhotoMenu2.png'),
   restaurantPhotoMenu3: require('../../assets/images/restaurantPhotoMenu3.png'),

@@ -22,10 +22,20 @@ import styles from './styles';
 
 const dataImageFake = [
   Images.restaurantPhoto,
-  Images.restaurantPhotoMenu1,
-  Images.restaurantPhotoMenu2,
-  Images.restaurantPhotoMenu3,
-  Images.restaurantPhotoMenu4,
+  Images.restaurantPhoto2,
+  Images.restaurantPhoto3,
+  Images.restaurantPhoto4,
+  Images.restaurantPhoto5,
+  Images.restaurantPhoto6,
+  Images.restaurantPhoto7,
+  Images.restaurantPhoto8,
+  Images.restaurantPhoto9,
+  Images.restaurantPhoto10,
+  Images.restaurantPhoto11,
+  Images.restaurantPhoto12,
+  Images.restaurantPhoto13,
+  Images.restaurantPhoto14,
+  Images.restaurantPhoto15,
 ];
 
 class HomeOverviewRestaurant extends PureComponent {
