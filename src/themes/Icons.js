@@ -26,6 +26,10 @@ const icons = {
   greenMarker: require('../../assets/icons/greenMarker.png'),
   grayMarker: require('../../assets/icons/grayMarker.png'),
   follow: require('../../assets/icons/follow.png'),
+
+  resIcon: require('../../assets/icons/resIcon.png'),
+  tea: require('../../assets/icons/tea.png'),
+  clubbar: require('../../assets/icons/clubbar.png'),
 };
 
 export default icons;

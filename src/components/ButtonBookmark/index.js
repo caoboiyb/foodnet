@@ -7,8 +7,8 @@ import {
   AsyncStorage,
 } from 'react-native';
 import styles from './styles';
-import Icons from '../../../themes/Icons';
-import Colors from '../../../themes/color';
+import Icons from '../../themes/Icons';
+import Colors from '../../themes/color';
 
 class ButtonBookmark extends PureComponent {
   state = {

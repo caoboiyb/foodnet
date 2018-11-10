@@ -15,8 +15,8 @@ import Icons from '../../themes/Icons';
 import Colors from '../../themes/color';
 import Images from '../../themes/Images';
 // import Header from '../../../components/Header';
-import ButtonCustom from './ButtonCustom';
-import ButtonBookmark from './ButtonBookmark';
+import ButtonCustom from '../../components/ButtonCustom';
+import ButtonBookmark from '../../components/ButtonBookmark';
 import * as d from '../../utilities/Tranform';
 import styles from './styles';
 

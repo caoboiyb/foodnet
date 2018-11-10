@@ -8,7 +8,7 @@ import {
   Modal,
 } from 'react-native';
 import styles from './styles';
-import Colors from '../../../themes/color';
+import Colors from '../../themes/color';
 
 class Content extends PureComponent {
   state = {

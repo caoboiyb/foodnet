@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
-
-import * as d from '../../../../utilities/Tranform';
+import * as d from '../../utilities/Tranform';
 
 const styles = StyleSheet.create({
   ViewMain: {
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     marginTop: 20 * d.ratioH,
-    justifyContent: 'flex-start',
+    // justifyContent: 'flex-start',
   },
 
   linkImage: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
   avatar: {
     height: 35 * d.ratioH,
     width: 35 * d.ratioW,
-    borderRadius: 35 * d.ratioW,
+    borderRadius: 17.5 * d.ratioW,
   },
 
   ViewNameHours: {
@@ -88,20 +87,11 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     color: 'rgb(153,153,153)',
   },
-  confirmBtn: {
-    marginTop: 10 * d.ratioH,
-    backgroundColor: 'rgb(66,183,42)',
-    height: 30 * d.ratioH,
-    width: 50 * d.ratioW,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5 * d.ratioW,
-  },
 
-  TextConfirm: {
-    fontSize: 12,
+  TextHoursComment2: {
+    fontSize: 13,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'rgb(153,153,153)',
   },
 });
 

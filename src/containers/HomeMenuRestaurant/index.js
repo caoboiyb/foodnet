@@ -5,7 +5,7 @@ import NavBar from '../../components/NavBar';
 import Icons from '../../themes/Icons';
 import Images from '../../themes/Images';
 import * as d from '../../utilities/Tranform';
-import Content from './Content';
+import Content from '../../components/ContentMenu';
 
 const dataFake = [
   {

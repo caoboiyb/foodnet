@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import styles from './styles';
 import Icons from '../../themes/Icons';
 import Images from '../../themes/Images';
-import Content from './Content';
+import Content from '../../components/ContentReview';
 import NavBar from '../../components/NavBar';
 
 const dataFake = [
