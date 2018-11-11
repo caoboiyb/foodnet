@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Modal,
   Dimensions,
+  Alert,
 } from 'react-native';
 // import StarRating from 'react-native-star-rating';
 // import Loading from '../../../components/LoadingContainer';
@@ -96,12 +97,27 @@ class HomeOverviewRestaurant extends PureComponent {
               title="Direct"
               iconName={Icons.directOutLine}
               iconColor={Colors.text}
-              onPressButton={() => this.props.navigate('Direct')}
+              onPressButton={() => this.props.navigation.navigate('Direct')}
             />
             <ButtonCustom
               title="Call Now"
               iconName={Icons.phoneCall}
               iconColor={Colors.text}
+              onPressButton={() => {
+                Alert.alert(
+                  'Gọi điện',
+                  '+84 113 566 52',
+                  [
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log('Ask me later pressed'),
+                    },
+
+                    { text: 'Call', onPress: () => console.log('OK Pressed') },
+                  ],
+                  { cancelable: false },
+                );
+              }}
             />
             <ButtonBookmark
               title="Bookmark"

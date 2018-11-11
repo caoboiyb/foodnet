@@ -51,7 +51,7 @@ class Content extends PureComponent {
               </Text>
             </View>
             <View style={styles.ViewScore}>
-              <Text style={styles.TextScore}>{this.props.data.score}/10</Text>
+              <Text style={styles.TextScore}>{this.props.data.score}/5</Text>
             </View>
           </View>
           <View style={styles.ViewMainChildBottom}>
