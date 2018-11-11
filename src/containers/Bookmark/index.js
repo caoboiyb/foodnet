@@ -80,6 +80,7 @@ class Bookmark extends Component {
         <NavBar
           title="Bookmark"
           rightNavBar={<Image source={Icons.profile} />}
+          onPressRight={() => this.props.navigation.navigate('MyProfile')}
         />
         <View style={{ flex: 1, paddingTop: 25 }}>
           <FlatList
