@@ -10,7 +10,10 @@ const ImageCard = (props) => (
         <Text style={card.txtCircle}>{props.review}</Text>
       </View>
       <View style={card.imageView}>
-        <Image style={card.image} source={props.image} />
+        <Image
+          style={card.image}
+          source={props.image !== null ? props.image : { uri: props.urlImage }}
+        />
       </View>
       <View style={card.infoView}>
         <Text style={card.name} numberOfLines={1}>
