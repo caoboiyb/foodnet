@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
+  Platform,
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import NavBar from '../../components/NavBar';
@@ -80,7 +81,7 @@ class Profile extends Component {
               <TextInput
                 style={styles.input}
                 value={this.state.username}
-                onChangeText={(text) => this.setState({ username: text })}
+                onChangeText={text => this.setState({ username: text })}
               />
             </View>
             <View style={styles.inputView}>
@@ -88,7 +89,7 @@ class Profile extends Component {
               <TextInput
                 style={styles.input}
                 value={this.state.address}
-                onChangeText={(text) => this.setState({ address: text })}
+                onChangeText={text => this.setState({ address: text })}
               />
             </View>
             <View style={styles.inputView}>
@@ -97,7 +98,7 @@ class Profile extends Component {
                 style={styles.input}
                 value={this.state.password}
                 secureTextEntry
-                onChangeText={(text) => this.setState({ password: text })}
+                onChangeText={text => this.setState({ password: text })}
               />
             </View>
             <View style={styles.inputView}>
@@ -106,7 +107,7 @@ class Profile extends Component {
                 style={styles.input}
                 value={this.state.repass}
                 secureTextEntry
-                onChangeText={(text) => this.setState({ repass: text })}
+                onChangeText={text => this.setState({ repass: text })}
               />
             </View>
           </View>
@@ -120,6 +121,7 @@ class Profile extends Component {
               backgroundColor: 'rgba(66,183,42,1)',
               borderRadius: 2.5,
               marginTop: 20,
+              marginBottom: Platform.OS === 'ios' ? 0 : 20,
             }}
             onPress={() => this.props.navigation.navigate('Auth')}
           >
