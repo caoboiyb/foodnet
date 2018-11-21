@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import NavBar from '../../components/NavBar';
@@ -35,6 +36,21 @@ class Profile extends Component {
         alert('Change info successful');
       },
     );
+  };
+
+  onLogout = () => {
+    Alert.alert('Thông báo', 'Bạn có muốn đăng xuất', [
+      {
+        text: 'Huỷ',
+        onPress: () => {},
+      },
+      {
+        text: 'Đồng ý',
+        onPress: () => {
+          this.props.navigation.navigate('Auth');
+        },
+      },
+    ]);
   };
 
   render() {
@@ -81,6 +97,7 @@ class Profile extends Component {
                 style={styles.input}
                 value={this.state.username}
                 onChangeText={(text) => this.setState({ username: text })}
+                autoCorrect={false}
               />
             </View>
             <View style={styles.inputView}>
@@ -89,6 +106,7 @@ class Profile extends Component {
                 style={styles.input}
                 value={this.state.address}
                 onChangeText={(text) => this.setState({ address: text })}
+                autoCorrect={false}
               />
             </View>
             <View style={styles.inputView}>
@@ -98,6 +116,7 @@ class Profile extends Component {
                 value={this.state.password}
                 secureTextEntry
                 onChangeText={(text) => this.setState({ password: text })}
+                autoCorrect={false}
               />
             </View>
             <View style={styles.inputView}>
@@ -107,6 +126,7 @@ class Profile extends Component {
                 value={this.state.repass}
                 secureTextEntry
                 onChangeText={(text) => this.setState({ repass: text })}
+                autoCorrect={false}
               />
             </View>
           </View>
@@ -121,7 +141,7 @@ class Profile extends Component {
               borderRadius: 2.5,
               marginTop: 20,
             }}
-            onPress={() => this.props.navigation.navigate('Auth')}
+            onPress={this.onLogout}
           >
             <Text
               style={{

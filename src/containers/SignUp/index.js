@@ -87,6 +87,7 @@ class SignUp extends Component {
               onSubmitEditing={this.onNextEmail}
               returnKeyType="next"
               autoCapitalize="none"
+              autoCorrect={false}
             />
             <TextInput
               ref={(ref) => {

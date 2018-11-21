@@ -129,6 +129,7 @@ class Search extends Component {
               onChangeText={this.onChangeSearch}
               onSubmitEditing={this.searchSubmit}
               onBlur={this.onBlurSearch}
+              autoCorrect={false}
             />
           </View>
           <View style={header.place}>
@@ -146,6 +147,7 @@ class Search extends Component {
                 underlineColorAndroid="transparent"
                 onSubmitEditing={this.placeSubmit}
                 onChangeText={this.onChangePlace}
+                autoCorrect={false}
               />
             </View>
           </View>

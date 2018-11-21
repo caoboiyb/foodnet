@@ -7,6 +7,7 @@ import {
   Image,
   Modal,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import styles from './styles';
 import Icons from '../../themes/Icons';
@@ -14,6 +15,7 @@ import Images from '../../themes/Images';
 import Content from '../../components/ContentReview';
 import NavBar from '../../components/NavBar';
 import { Rating, AirbnbRating } from 'react-native-ratings';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 const dataFake = [
   {
@@ -111,17 +113,18 @@ class HomeReviewRestaurant extends PureComponent {
               type="star"
               ratingCount={5}
               imageSize={20}
-              onFinishRating={rating => this.setState({ rating })}
+              onFinishRating={(rating) => this.setState({ rating })}
               style={{ paddingVertical: 10 }}
               def
             />
             <TextInput
               style={styles.TextInput}
-              onChangeText={text => this.setState({ comment: text })}
+              onChangeText={(text) => this.setState({ comment: text })}
               value={this.state.comment}
               placeholder="Tuyệt vời :)"
               autoFocus={true}
               multiline={true}
+              autoCorrect={false}
             />
             <View style={styles.SendBtnView}>
               <TouchableOpacity
@@ -140,6 +143,7 @@ class HomeReviewRestaurant extends PureComponent {
               </TouchableOpacity>
             </View>
           </View>
+          <KeyboardSpacer />
         </TouchableOpacity>
       </Modal>
     );

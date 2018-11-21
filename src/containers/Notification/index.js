@@ -115,6 +115,8 @@ class Notification extends Component {
             data={this.state.data}
             keyExtractor={(item, index) => item.id}
             renderItem={this.renderItem}
+            refreshing={false}
+            onRefresh={() => {}}
           />
         </View>
       </View>

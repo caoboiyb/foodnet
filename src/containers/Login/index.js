@@ -72,6 +72,7 @@ class Login extends Component {
                 autoCapitalize="none"
                 onChangeText={this.onChangeEmail}
                 onSubmitEditing={this.onNext}
+                autoCorrect={false}
               />
               <TextInput
                 ref={(ref) => {
