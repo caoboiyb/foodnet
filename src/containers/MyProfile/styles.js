@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import * as d from '../../utilities/Tranform';
+import { isIphoneX } from '../../utilities/device';
 
 const account = StyleSheet.create({
   container: {
@@ -77,7 +78,7 @@ const account = StyleSheet.create({
   },
   input: {
     backgroundColor: '#FFFFFF',
-    height: 30,
+    height: Platform.OS === 'ios' ? 30 : 50 * d.ratioH,
     flex: 2,
     paddingHorizontal: 10,
     borderRadius: 2.5,

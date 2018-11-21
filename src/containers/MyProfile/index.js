@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  Platform,
 } from 'react-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import NavBar from '../../components/NavBar';
@@ -140,6 +141,7 @@ class Profile extends Component {
               backgroundColor: 'rgba(66,183,42,1)',
               borderRadius: 2.5,
               marginTop: 20,
+              marginBottom: Platform.OS === 'ios' ? 0 : 20,
             }}
             onPress={this.onLogout}
           >
